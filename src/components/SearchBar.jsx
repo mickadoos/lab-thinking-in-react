@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function SearchBar ({searchProduct}) {
+export default function SearchBar ({search}) {
     
     const [searchName, setSearchName] = useState("")
 
@@ -8,16 +8,17 @@ export default function SearchBar ({searchProduct}) {
         // e.preventDefault();
         setSearchName(e.target.value)
         console.log('TARGET VALUE-------', e.target.value)
-        searchProduct(searchName)
+        search(searchName)
+        console.log('searchname length-----', searchName.length)
     }
 
     return (
         <div>
              <label>Search</label>
-             <input value={undefined} type="text" onChange={searcHandler} />
+             <input value={undefined} type="search" onChange={searcHandler} />
             <br/>
-            <input type="checkbox" id="show" name="show" value="products" />
-            <label forHtml="show">Only show products in store</label>
+            <input type="checkbox" name="show" value="products" />
+            <label>Only show products in store</label>
         </div>
     )
 }

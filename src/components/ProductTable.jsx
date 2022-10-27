@@ -4,7 +4,7 @@ export default function ProductTable ({productsProp}) {
 
     const displayProducts = () => {
         const showProducts = productsProp.map(product => {
-            return <ProductRow name={product.name} price={product.price} inStock={product.inStock}/>
+            return <ProductRow key={product.id} name={product.name} price={product.price} inStock={product.inStock}/>
         })
         return showProducts;
     }

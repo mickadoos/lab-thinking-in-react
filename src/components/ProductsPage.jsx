@@ -7,11 +7,16 @@ export default function ProductsPage () {
     const [products, setProducts] = useState(jsonData);
 
     const searchProduct = (productName) => {
-        productName = productName.toLowerCase();
-        const resultProduct = products.filter(product => {
-          return product.name.includes(productName)
-        })
-        setProducts(resultProduct);
+        if(productName.length > 0){
+
+            productName = productName.toLowerCase();
+            const resultProduct = jsonData.filter(product => {
+                product.name = product.name.toLowerCase();
+                // console.log('JSONDATA-----', jsonData)
+                return product.name.includes(productName)
+            })
+            setProducts(resultProduct);
+        }
       }
 
     return (
